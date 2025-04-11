@@ -21,6 +21,6 @@ public class TestConfig implements CommandLineRunner {
         User us1 = new User(null, "José Leandro", "jose@gmail.com", "11935041945", "123");
         User us2 = new User(null, "Isabele Fernandes", "isa@gmail.com", "35928453202", "321");
 
-        userRepository.saveAll(Arrays.asList(us1,us2));
+        userRepository.saveAll(Arrays.asList(us1, us2));
     }
 }
