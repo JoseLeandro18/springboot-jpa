@@ -14,7 +14,7 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> findAll(){
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 
