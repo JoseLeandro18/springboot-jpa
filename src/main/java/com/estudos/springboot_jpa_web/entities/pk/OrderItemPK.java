@@ -1,10 +1,10 @@
 package com.estudos.springboot_jpa_web.entities.pk;
 
-import com.estudos.springboot_jpa_web.entities.Product;
 import com.estudos.springboot_jpa_web.entities.Order;
+import com.estudos.springboot_jpa_web.entities.Product;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -15,11 +15,11 @@ public class OrderItemPK implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
