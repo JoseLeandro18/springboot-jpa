@@ -2,6 +2,7 @@ package com.estudos.springboot_jpa_web.services;
 
 import com.estudos.springboot_jpa_web.entities.User;
 import com.estudos.springboot_jpa_web.repositories.UserRepository;
+import com.estudos.springboot_jpa_web.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,20 +21,20 @@ public class UserService {
 
     public User findById(Long id) {
         Optional<User> obj = userRepository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User obj) {
         return userRepository.save(obj);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         userRepository.deleteById(id);
     }
 
-    public User update(Long id, User obj){
+    public User update(Long id, User obj) {
         User entity = userRepository.getReferenceById(id);
-        updateData(entity,obj);
+        updateData(entity, obj);
         return userRepository.save(entity);
     }
 

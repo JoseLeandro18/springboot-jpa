@@ -25,7 +25,7 @@ public class Payment implements Serializable {
     @MapsId
     private Order order;
 
-    public Payment(){
+    public Payment() {
     }
 
     public Payment(Long id, Instant moment, Order order) {
